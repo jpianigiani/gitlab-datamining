@@ -1,0 +1,126 @@
+{
+"GitLabEndpoint":{
+    "juniper-ssd-git":
+        {
+        "AccessToken":"VmFoaeq8xYQy6zA-VHPi",
+        "GitLabURL":"https://ssd-git.juniper.net/api/v4"
+        },
+
+    "gitlab.com":
+        {
+        "AccessToken":"glpat-xPqQAz4hx4CTd9EXD3BU",
+        "GitLabURL":"https://gitlab.com/api/v4"
+        },
+    "dt_gitlab.com":
+        {
+        "AccessToken":"BB1w_sCM9oafQjy5jJ1a",
+        "GitLabURL":"https://gitlab.poc.dcn.telekom.de/api/v4"
+        }
+        
+
+    },
+"GlobalSettings":{
+    "OutputToFile": [ 
+        { "category":"general", "filename":"./output.general.json" },
+        { "category":"projects", "filename":"./output.projects.json"},
+        { "category":"project", "filename":"./output.project.json"},
+        { "category":"pipelines", "filename":"./output.pipelines.json"},
+        { "category":"jobs", "filename":"./output.jobs.json"}
+                
+    ]
+
+},
+
+"Operations":{
+    "globalparameters":[
+
+
+        ],
+    "percategoryparameters":[
+        { "general":[]},
+        { "projects":[]},
+        { "project":[]},
+        { "pipelines":[{"updated_after":"2022-05-30T00:00:00Z"},        {"status":"failed"}]},
+        { "jobs":[]}
+
+        ]
+    ,
+
+    "version":
+    {
+    "apiurl":"/version",
+    "category":"general"
+    }
+    ,
+    "get_projects":
+        {
+        "apiurl":"/projects",
+        "category":"projects",
+        "parameters":[
+            ]
+        }
+        ,
+    "get_pipelines":
+        {
+        "apiurl":"/pipelines",
+        "category":"pipelines",
+        "parameters":
+            [  {"status":"failed"}
+            ]
+        },
+    "get_project_by_id":
+        {
+        "apiurl":"/projects/:id",
+        "category":"project"
+        }
+    ,
+    "get_pipelines_by_projectid":
+        {
+        "apiurl":"/projects/:id/pipelines",
+        "category":"pipelines",
+        "debug":true,
+        "parameters":[
+            ]
+        }
+        ,
+    "get_jobs_by_projectid_pipelineid":
+            {
+            "apiurl":"/projects/:id/pipelines/:pipeline_id/jobs",
+            "category":"jobs",
+
+            "parameters":[
+                ]
+            }
+            ,
+    "get_jobs_by_projectid":
+                    {
+                    "apiurl":"/projects/:id/jobs",
+                    "category":"jobs",
+
+                    "parameters":[
+                        {"scope[]":"failed"},
+                        {"scope[]":"success"}
+                        ]
+                    }
+                    ,
+    "get_jobs_by_pipelineid":
+                                    {
+                                    "apiurl":"/projects/:id/pipelines/:pipeline_id/jobs",
+                                    "category":"jobs",
+                                    "debug":true,
+                                    "parameters":[
+
+                                        ]
+                                    }
+
+
+
+    }
+
+    
+
+}
+
+
+
+
